@@ -7,15 +7,18 @@ import java.util.Properties;
 public class Readconfig {
 	
 	static Properties props = new Properties();
-	static String configloc = "/src/main/resources/config.properties";
+	static String configloc = "/zenvisage/src/main/resources/config.properties";
 	static File f = new File("");
 	static String path = f.getAbsoluteFile().getParent()+configloc;
+        
 	
 //	ClassLoader classLoader = getClass().getClassLoader();
 //	File fi = new File(classLoader.getResource("config.properties").getFile());
 	
 	static{
 			try {
+                            System.out.println("=======================");
+                            System.out.println(path);
 				FileInputStream in = new FileInputStream(path);
 				props.load(in);
 				

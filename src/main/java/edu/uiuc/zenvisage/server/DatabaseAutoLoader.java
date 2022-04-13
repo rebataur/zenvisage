@@ -17,6 +17,7 @@ public class DatabaseAutoLoader {
 	private static String metafilelocation;
 	private ZvServer zvServer;
 	Boolean reload = true;
+        String p = Constants.prjpath  + "zenvisage\\data\\";
 	static{
 		metatable=Readconfig.getMetatable();
 		metafilelocation=Readconfig.getMetafilelocation();
@@ -71,7 +72,7 @@ public class DatabaseAutoLoader {
 	}
 
 	public void loadDemoDatasets() throws SQLException, IOException, InterruptedException{
-		// URL folderURL = zvServer.getClass().getClassLoader().getResource(("data"));
+		// URL folderURL = p+"data"));
 		// if(folderURL == null){
 		// 	System.out.println("Data folder not exists, abort auto loader.");
 		// 	return;
@@ -81,40 +82,40 @@ public class DatabaseAutoLoader {
 
 		List<String> dataset1 = new ArrayList<String>(); // real_estate
 		dataset1.add("real_estate");
-		File file = new File(zvServer.getClass().getClassLoader().
-				getResource(("real_estate.csv")).getFile());
+		File file = new File(p+"real_estate.csv");
+                System.out.println("================================================================");
+                System.out.println(p+"real_estate.csv");
 		dataset1.add(file.getAbsolutePath());
-		file = new File(zvServer.getClass().getClassLoader().getResource(("real_estate.txt")).getFile());
+		file = new File(p+"real_estate.txt");
 		dataset1.add(file.getAbsolutePath());
 
 		List<String> dataset2 = new ArrayList<String>(); //weather
 		dataset2.add("weather");
-		file = new File(zvServer.getClass().getClassLoader().getResource(("weather.csv")).getFile());
+		file = new File(p+"weather.csv");
 		dataset2.add(file.getAbsolutePath());
-		file = new File(zvServer.getClass().getClassLoader().getResource(("weather.txt")).getFile());
+		file = new File(p+"weather.txt");
 		dataset2.add(file.getAbsolutePath());
 
 		List<String> dataset3 = new ArrayList<String>(); //flights
 		dataset3.add("flights");
-		file = new File(zvServer.getClass().getClassLoader().getResource(("flights.csv")).getFile());
+		file = new File(p+"flights.csv");
 		dataset3.add(file.getAbsolutePath());
-		file = new File(zvServer.getClass().getClassLoader().getResource(("flights.txt")).getFile());
+		file = new File(p+"flights.txt");
 		dataset3.add(file.getAbsolutePath());
 
 		List<String> dataset4 = new ArrayList<String>(); //cmu
 		dataset4.add("cmu");
-		file = new File(zvServer.getClass().getClassLoader().getResource(("cmu_clean.csv")).getFile());
+		file = new File(p+"cmu_clean.csv");
 		dataset4.add(file.getAbsolutePath());
-		file = new File(zvServer.getClass().getClassLoader().getResource(("cmu_clean.txt")).getFile());
+		file = new File(p+"cmu_clean.txt");
 		dataset4.add(file.getAbsolutePath());
 
 
 		List<String> dataset5 = new ArrayList<String>(); //cmu
 		dataset5.add("real_estate_tutorial");
-		file = new File(zvServer.getClass().getClassLoader().
-				getResource(("real_estate_tutorial.csv")).getFile());
+		file = new File(p+"real_estate_tutorial.csv");
 		dataset5.add(file.getAbsolutePath());
-		file = new File(zvServer.getClass().getClassLoader().getResource(("real_estate.txt")).getFile());
+		file = new File(p+"real_estate.txt");
 		dataset5.add(file.getAbsolutePath());
 		ZvMain zvMain=new ZvMain();
 		zvMain.uploadDatasettoDB(dataset1,false);

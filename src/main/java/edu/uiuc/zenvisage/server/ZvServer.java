@@ -20,6 +20,7 @@ public class ZvServer {
 	
 	static{
 		port = Readconfig.getPort();
+                System.out.println(port);
 	}
 	
 	public void setPort(int port) {
@@ -31,7 +32,7 @@ public class ZvServer {
 		
 		WebAppContext webAppContext = new WebAppContext();
 		webAppContext.setContextPath("/");
-		webAppContext.setWar("zenvisage.war");
+		webAppContext.setWar(Constants.prjpath + "zenvisage\\target\\zenvisage.war");
 		webAppContext.setParentLoaderPriority(true);
 		webAppContext.setServer(server);
 		webAppContext.setClassLoader(ClassLoader.getSystemClassLoader());
